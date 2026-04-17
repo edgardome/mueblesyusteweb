@@ -3,14 +3,14 @@
 :root {
   /* Paleta: "Roble Contemporáneo" */
   /* Paleta: "Roble Contemporáneo" Ajustada */
-  --bg-color: #F9F7F2; /* Hueso Suave - Ahora como Fondo principal para quitar la molestia del blanco puro */
-  --surface-color: #FFFFFF; /* Blanco Nieve - Resalta tarjetas y secciones con mucha lectura */
-  --surface-hover: #EBE6DC; /* Variación para hovers */
-  --primary-accent: #A67B46; /* Roble Tostado - CTA, iconos, acentos */
-  --primary-accent-hover: #6F4E37; /* Arcilla Profunda - Hover y secundarios */
-  --text-main: #2D2D2D; /* Gris Carbono - Textos, títulos, pies de página */
-  --text-muted: #666666; /* Gris más suave para textos secundarios */
-  --border-color: #E0D9CC; 
+  --bg-color: #F9F7F2; /* Hueso Suave */
+  --surface-color: #FFFFFF; /* Blanco Nieve */
+  --surface-hover: #EDF3EC; /* Variación verdosa para hovers */
+  --primary-accent: #0B7E34; /* Verde Logotipo Yuste - CTA, iconos, acentos */
+  --primary-accent-hover: #086027; /* Verde Bosque más oscuro - Hover */
+  --text-main: #2D2D2D; /* Gris Carbono */
+  --text-muted: #666666;
+  --border-color: #DDE5DD; 
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
   --transition-fast: 0.2s ease-in-out;
@@ -56,7 +56,7 @@ header {
   z-index: 1000;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(166, 123, 70, 0.15); /* Roble tostado */
+  border-bottom: 1px solid rgba(11, 126, 52, 0.15); /* Verde Yuste translúcido */
 }
 
 /* Language Switcher */
@@ -219,13 +219,13 @@ header {
 .btn-primary {
   background-color: var(--primary-accent);
   color: #fff;
-  box-shadow: 0 4px 15px rgba(166, 123, 70, 0.3);
+  box-shadow: 0 4px 15px rgba(11, 126, 52, 0.3);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(111, 78, 55, 0.4);
+  box-shadow: 0 8px 25px rgba(8, 96, 39, 0.4);
   color: #fff;
 }
 
@@ -319,7 +319,7 @@ section:nth-of-type(even), .bg-hueso {
 .card:hover {
   transform: translateY(-8px);
   border-color: var(--primary-accent);
-  box-shadow: 0 15px 30px rgba(166, 123, 70, 0.15);
+  box-shadow: 0 15px 30px rgba(11, 126, 52, 0.15);
 }
 
 .card-img-wrapper {
@@ -412,7 +412,7 @@ section:nth-of-type(even), .bg-hueso {
 .client-list li:hover {
   transform: translateY(-4px);
   border-color: var(--primary-accent);
-  box-shadow: 0 8px 20px rgba(166, 123, 70, 0.15);
+  box-shadow: 0 8px 20px rgba(11, 126, 52, 0.15);
   color: var(--primary-accent);
 }
 
@@ -452,7 +452,7 @@ section:nth-of-type(even), .bg-hueso {
   outline: none;
   border-color: var(--primary-accent);
   background-color: #fff;
-  box-shadow: 0 0 0 3px rgba(166, 123, 70, 0.15);
+  box-shadow: 0 0 0 3px rgba(11, 126, 52, 0.15);
 }
 
 textarea.form-input {
