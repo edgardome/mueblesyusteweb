@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacto - Muebles Yuste. Dónde estamos y cómo comunicarte con nosotros.">
+  <title>Contacto | Muebles Yuste</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">MUEBLES <span>YUSTE</span></div>
+      <div class="nav-right">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+            <li><a href="historia.html" data-i18n="nav_history">Historia</a></li>
+            <li><a href="proyectos.html" data-i18n="nav_projects">Proyectos</a></li>
+            <li><a href="contacto.html" class="active" data-i18n="nav_contact">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px;">
+    <section class="animate-on-scroll">
+      <div class="section-header">
+        <h2 data-i18n="contact_title">Contacta Con Nosotros</h2>
+        <p data-i18n="contact_sub">No dudes en enviarnos un mensaje o visitarnos en Béjar</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="contact-info animate-on-scroll">
+          <div style="margin-bottom: 2rem;">
+            <h3 style="margin-bottom: 0.5rem; color: var(--primary-accent); font-size: 1.5rem;" data-i18n="contact_info">Información de Contacto</h3>
+            <p style="color: var(--text-muted);"><strong>Carpinteria Muebles Yuste</strong></p>
+            <p style="color: var(--text-muted);">Tlf: 923 401 680</p>
+            <p style="color: var(--text-muted);">Béjar, Salamanca</p>
+          </div>
+          
+          <div style="margin-bottom: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: var(--primary-accent); font-size: 1.5rem;" data-i18n="contact_loc">Dónde Estamos</h3>
+            <div style="width: 100%; height: 300px; border-radius: 4px; overflow: hidden; border: 1px solid var(--border-color);">
+              <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+                src="https://maps.google.es/maps?hl=es&amp;q=muebles+yuste+bejar&amp;ie=UTF8&amp;t=m&amp;z=14&amp;iwloc=B&amp;output=embed">
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form animate-on-scroll">
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label for="name" data-i18n="contact_name">Nombre / Empresa</label>
+              <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" data-i18n="contact_email">Dirección de correo</label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject" data-i18n="contact_subject">Asunto</label>
+              <input type="text" id="subject" name="subject" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message" data-i18n="contact_message">Mensaje</label>
+              <textarea id="message" name="message" class="form-input" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="contact_btn">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>MUEBLES <span>YUSTE</span></h4>
+        <p data-i18n="footer_desc">Expertos en postformados y soluciones integrales de madera desde los años 60.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_links">Enlaces</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+          <li><a href="historia.html" data-i18n="nav_history">Historia</a></li>
+          <li><a href="proyectos.html" data-i18n="nav_projects">Proyectos</a></li>
+          <li><a href="contacto.html" data-i18n="nav_contact" class="active">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact">Contacto</h4>
+        <ul>
+          <li>Carpintería Muebles Yuste</li>
+          <li>Béjar, Salamanca</li>
+          <li>Teléfono: 923 401 680</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Muebles Yuste. <span data-i18n="footer_rights">Todos los derechos reservados.</span> <a href="#" data-i18n="legal">Aviso Legal</a></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

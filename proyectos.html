@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Proyectos de Muebles Yuste - Trabajos realizados en postformados, mecanismos y muebles especiales.">
+  <title>Proyectos | Muebles Yuste</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .projects-container {
+      display: flex;
+      gap: 3rem;
+      margin-top: 2rem;
+      align-items: flex-start;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .category-sidebar {
+      flex: 0 0 280px;
+      position: sticky;
+      top: 100px; /* Header height + buffer */
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
+
+    /* Custom scrollbar for sidebar */
+    .category-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .category-sidebar::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+    
+    .category-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .category-list li {
+      cursor: pointer;
+      padding: 0.75rem 1rem;
+      background: var(--surface-color);
+      border-radius: 6px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all var(--transition-fast);
+      border: 1px solid transparent;
+    }
+
+    .category-list li:hover {
+      background: var(--surface-hover);
+      color: var(--primary-accent);
+    }
+
+    .category-list li.active-cat {
+      background: var(--surface-hover);
+      border-color: var(--primary-accent);
+      color: var(--primary-accent);
+    }
+
+    .projects-content {
+      flex: 1;
+    }
+
+    /* Modal for big projects */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    
+    .modal-content {
+      background: var(--surface-color);
+      max-width: 800px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+    
+    .modal-close:hover {
+      color: var(--primary-accent);
+    }
+
+    .modal-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .modal-gallery img {
+      max-height: 250px;
+      border-radius: 8px;
+    }
+    
+    @media (max-width: 768px) {
+      .projects-container {
+        flex-direction: column;
+      }
+      .category-sidebar {
+        flex: auto;
+      }
+      .category-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">MUEBLES <span>YUSTE</span></div>
+      <div class="nav-right">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+            <li><a href="historia.html" data-i18n="nav_history">Historia</a></li>
+            <li><a href="proyectos.html" class="active" data-i18n="nav_projects">Proyectos</a></li>
+            <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px; padding-bottom: 4rem;">
+    <section>
+      <div class="projects-container">
+        <div class="category-sidebar">
+          <ul class="category-list" id="category-list">
+            <!-- Categories injected here -->
+          </ul>
+        </div>
+        
+        <div class="projects-content">
+          <div class="section-header" style="margin-bottom: 2rem; text-align: center;">
+            <h2 data-i18n="projects_title">Nuestros Proyectos</h2>
+            <p data-i18n="projects_sub">Carpintería de vanguardia para requerimientos exigentes</p>
+          </div>
+          <h3 id="current-category-title" style="margin-bottom: 1.5rem; color: var(--primary-accent); font-size: 1.8rem; text-align: center;" data-i18n="projects_all">Todos los Proyectos</h3>
+          <div class="grid-2" id="projects-grid">
+            <!-- Projects injected here -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="project-modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modal-close">&times;</span>
+      <h2 id="modal-title" style="color: var(--primary-accent); margin-bottom: 1rem; padding-right: 30px;"></h2>
+      <p id="modal-desc" style="color: var(--text-main); line-height: 1.8;"></p>
+      <div class="modal-gallery" id="modal-gallery"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>MUEBLES <span>YUSTE</span></h4>
+        <p data-i18n="footer_desc">Expertos en postformados y soluciones integrales de madera desde los años 60.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_links">Enlaces</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+          <li><a href="historia.html" data-i18n="nav_history">Historia</a></li>
+          <li><a href="proyectos.html" data-i18n="nav_projects" class="active">Proyectos</a></li>
+          <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact">Contacto</h4>
+        <ul>
+          <li>Carpintería Muebles Yuste</li>
+          <li>Béjar, Salamanca</li>
+          <li>Teléfono: 923 401 680</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Muebles Yuste. <span data-i18n="footer_rights">Todos los derechos reservados.</span> <a href="#" data-i18n="legal">Aviso Legal</a></p>
+    </div>
+  </footer>
+
+  <script src="projects_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
