@@ -99,16 +99,14 @@ header {
 }
 
 .logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  font-family: var(--font-heading);
-  letter-spacing: 0.5px;
-  color: var(--text-main);
+  display: flex;
+  align-items: center;
 }
 
-.logo span {
-  color: var(--primary-accent);
-  font-weight: 400;
+.logo img {
+  height: 45px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -479,7 +477,7 @@ footer {
   margin-bottom: 4rem;
 }
 
-.footer-col h4 {
+.footer-col h4, .footer-col .logo {
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
   color: #fff;
